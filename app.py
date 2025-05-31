@@ -13,19 +13,43 @@ NOTEBOOK_DIR = "DL_ipynb"
 # Obtener la lista de archivos .ipynb
 notebooks = [f for f in os.listdir(NOTEBOOK_DIR) if f.endswith(".ipynb")]
 
-# Menú lateral para seleccionar
-selected_notebook = st.sidebar.selectbox("Selecciona un notebook", notebooks)
+# Sidebar
+st.sidebar.title("Navegación")
+menu = st.sidebar.radio("Ir a:", ["📒 Notebooks", "👩‍💻 About Me"])
 
-# Mostrar notebook seleccionado
-if selected_notebook:
-    notebook_path = os.path.join(NOTEBOOK_DIR, selected_notebook)
-    with open(notebook_path, "r", encoding="utf-8") as f:
-        nb = nbformat.read(f, as_version=4)
+# Página de Notebooks
+if menu == "📒 Notebooks":
+    selected_notebook = st.sidebar.selectbox("Selecciona un notebook", notebooks)
+    
+    if selected_notebook:
+        notebook_path = os.path.join(NOTEBOOK_DIR, selected_notebook)
+        with open(notebook_path, "r", encoding="utf-8") as f:
+            nb = nbformat.read(f, as_version=4)
 
-    # Convertir a HTML para visualizar bonito
-    html_exporter = HTMLExporter()
-    html_exporter.exclude_input = False  # Si quieres ocultar el código, pon True
-    (body, _) = html_exporter.from_notebook_node(nb)
+        # Convertir a HTML
+        html_exporter = HTMLExporter()
+        html_exporter.exclude_input = False  # Cambia a True si no quieres mostrar el código
+        (body, _) = html_exporter.from_notebook_node(nb)
 
-    # Mostrar como componente HTML
-    components.html(body, height=800, scrolling=True)
+        # Mostrar en Streamlit
+        components.html(body, height=800, scrolling=True)
+
+# Página "About Me"
+elif menu == "👩‍💻 About Me":
+    st.subheader("👩‍💻 Sobre mí y este proyecto")
+    st.markdown("""
+    ¡Hola! Soy Hildegard 👋🏼
+
+    Este proyecto es una galería interactiva de notebooks que he desarrollado como parte de mi aprendizaje en temas de inteligencia artificial y aprendizaje profundo.
+
+    En esta app podrás explorar notebooks directamente desde el navegador, sin necesidad de abrir Jupyter.  
+    Utilicé **Streamlit**, **nbconvert** y un poco de lógica en Python para convertir notebooks `.ipynb` en visualizaciones HTML incrustadas.
+
+    ### Funcionalidades:
+    - Visualización de notebooks de forma ordenada
+    - Interfaz intuitiva y amigable
+    - Exploración rápida desde el sidebar
+
+    Gracias por visitar ✨
+    """)
+
