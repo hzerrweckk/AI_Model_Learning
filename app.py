@@ -4,8 +4,8 @@ import nbformat
 from nbconvert import HTMLExporter
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="📓 Galería de Notebooks", layout="wide")
-st.title("📚 Mis Notebooks en Streamlit")
+st.set_page_config(page_title="📓 Galery", layout="wide")
+st.title("Notebooks")
 
 # Carpeta donde guardas tus notebooks
 NOTEBOOK_DIR = "DL_ipynb"
@@ -14,12 +14,12 @@ NOTEBOOK_DIR = "DL_ipynb"
 notebooks = [f for f in os.listdir(NOTEBOOK_DIR) if f.endswith(".ipynb")]
 
 # Sidebar
-st.sidebar.title("Navegación")
+st.sidebar.title("Nav")
 menu = st.sidebar.radio("Ir a:", ["📒 Notebooks", "👩‍💻 About Me"])
 
 # Página de Notebooks
 if menu == "📒 Notebooks":
-    selected_notebook = st.sidebar.selectbox("Selecciona un notebook", notebooks)
+    selected_notebook = st.sidebar.selectbox("Pick a notebook", notebooks)
     
     if selected_notebook:
         notebook_path = os.path.join(NOTEBOOK_DIR, selected_notebook)
@@ -36,9 +36,9 @@ if menu == "📒 Notebooks":
 
 # Página "About Me"
 elif menu == "👩‍💻 About Me":
-    st.subheader("👩‍💻 Sobre mí y este proyecto")
+    st.subheader("👩‍💻 This project")
     st.markdown("""
-    ¡Hola! Soy Hildegard 👋🏼
+    Hi, Im Hildegard Zerrweck 👋🏼
 
     Este proyecto es una galería interactiva de notebooks que he desarrollado como parte de mi aprendizaje en temas de inteligencia artificial y aprendizaje profundo.
 
