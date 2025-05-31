@@ -8,7 +8,7 @@ st.set_page_config(page_title="📓 Galería de Notebooks", layout="wide")
 st.title("📚 Mis Notebooks en Streamlit")
 
 # Carpeta donde guardas tus notebooks
-NOTEBOOK_DIR = "notebooks"
+NOTEBOOK_DIR = "DL_ipynb"
 
 # Obtener la lista de archivos .ipynb
 notebooks = [f for f in os.listdir(NOTEBOOK_DIR) if f.endswith(".ipynb")]
