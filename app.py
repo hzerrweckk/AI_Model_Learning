@@ -38,18 +38,16 @@ if menu == "📒 Notebooks":
 elif menu == "👩‍💻 About Me":
     st.subheader("👩‍💻 This project")
     st.markdown("""
-    Hi, Im Hildegard Zerrweck 👋🏼
+    Hello! I'm Hildegard 👋🏼
 
-    Este proyecto es una galería interactiva de notebooks que he desarrollado como parte de mi aprendizaje en temas de inteligencia artificial y aprendizaje profundo.
+    This project is an interactive gallery of Jupyter notebooks I've developed as part of my learning journey in **Deep Learning**.
 
-    En esta app podrás explorar notebooks directamente desde el navegador, sin necesidad de abrir Jupyter.  
-    Utilicé **Streamlit**, **nbconvert** y un poco de lógica en Python para convertir notebooks `.ipynb` en visualizaciones HTML incrustadas.
+    The goal of this app is to allow quick and easy access to the notebooks through a clean and user-friendly interface — no need to open Jupyter manually.
 
-    ### Funcionalidades:
-    - Visualización de notebooks de forma ordenada
-    - Interfaz intuitiva y amigable
-    - Exploración rápida desde el sidebar
+    ### 🧠 Topics Covered:
+    - 📈 **Regression** 
+    - ✉️ **Text classification** 
+    - 🖼️ **Image classification** 
 
-    Gracias por visitar ✨
     """)
 
