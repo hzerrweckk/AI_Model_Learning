@@ -1,5 +1,0 @@
-streamlit
-nbformat
-nbconvert
-jupyter
-jupyterlab
